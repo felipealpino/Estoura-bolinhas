@@ -4,8 +4,8 @@ function criarbola (){
 	var p1 = Math.floor(Math.random() *500);	// cria 1 numero aletario de 0 a 500 e salva em p1
 	var p2 = Math.floor(Math.random() *400);	// cria 1 numero aletario de 0 a 500 e salva em p2
 	
-	var cores = ["red","blue","black","orange","purple","grey","green"];
-	var IdCor = Math.floor(Math.random()*7);
+	var cores = ["red","blue","black","orange","purple","green","red","grey","red","black","orange","purple","grey","green","red"]
+	var IdCor = Math.floor(Math.random()*15);
 	// alert(IdCor);
 	var cor = cores [IdCor];
 	// alert(cor);
@@ -18,15 +18,31 @@ function criarbola (){
 function estourar(BolinhaClicada,CorDaBola){
 	// alert (CorDaBola);
 	if (CorDaBola == "red") {
-	alert("Estourou bola vermelha!");
-	// var div = parseInt(document.getElementById("estouradas").innerHTML); funciona tambem , porem usei o innerHTML++ acima
-	// var div = div + 1;
-	// document.getElementById("estouradas").innerHTML = div; }
+	// alert("Estourou bola vermelha!");
+	var div = parseInt(document.getElementById("placar").innerHTML); //funciona tambem , porem usei o innerHTML++ 
+	var div = div - 10;
+	document.getElementById("placar").innerHTML = div;
+	document.body.removeChild(BolinhaClicada);	}
+	
+	else if(CorDaBola == "blue"){
+		var div = parseInt(document.getElementById("placar").innerHTML);
+		var div = div + 4
+		document.getElementById("placar").innerHTML = div ; 
+		document.body.removeChild(BolinhaClicada) } 
+
+	else if(CorDaBola == "grey"){
+		var div = parseInt(document.getElementById("placar").innerHTML)
+		var div = div + 2
+		document.getElementById("placar").innerHTML = div
+		document.body.removeChild(BolinhaClicada) }
+
+
 	else {
 	document.body.removeChild(BolinhaClicada);
-	document.getElementById("estouradas").innerHTML++;
-	}
+	document.getElementById("placar").innerHTML++; } 
+
 }
+
 
 function iniciar(){
 	setInterval(criarbola,1000); 
